@@ -17,23 +17,49 @@ export const apolloAssociatedCompanyExample: AssociatedCompany = {
     "Apollo is a market sales platform that helps accelerate the growth of an organization.",
 };
 
+export const zendeskAssociatedCompanyExample: AssociatedCompany = {
+  id: "zendesk",
+  name: "Zendesk",
+  logoLink: "/image/zendesk-logo.jpeg",
+  website: "https://www.zendesk.com/",
+  distributionCount: 23,
+  industry: "Customer Support Software",
+  companySize: CompanySize.FiveHundredToThousand,
+  about: "",
+};
+
+export const brazeAssociatedCompanyExample: AssociatedCompany = {
+  id: "braze",
+  name: "Braze",
+  logoLink: "/image/braze-logo.jpeg",
+  website: "https://www.braze.com/",
+  distributionCount: 47,
+  industry: "Customer Engagement Platform",
+  companySize: CompanySize.HundredToFiveHundred,
+  about: "",
+};
+
 export const alsoListed: AlsoListed[] = [
   {
+    id: "braze",
     name: "Braze Integration Marketplace",
     logoLink: "/image/braze-logo.jpeg",
     type: "Affiliate",
   },
   {
+    id: "hubspot",
     name: "HubSpot App Marketplace",
     logoLink: "/image/hubspot-logo.jpeg",
     type: "App & integration",
   },
   {
+    id: "zendesk",
     name: "Zendesk Marketplace",
     logoLink: "/image/zendesk-logo.jpeg",
     type: "App & integration",
   },
   {
+    id: "apollo",
     name: "Apollo Integrations",
     logoLink: "/image/apollo-logo.jpeg",
     type: "App & integration",

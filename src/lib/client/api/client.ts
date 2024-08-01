@@ -7,7 +7,7 @@ import {
 export interface Client {
   getMarketplaceDetails(): Promise<MarketplaceDetail[]>;
 
-  getAlsoListed(): Promise<AlsoListed[]>;
+  getAlsoListed(id: string): Promise<AlsoListed[]>;
 
   getAssociatedCompany(id: string): Promise<AssociatedCompany | undefined>;
 }

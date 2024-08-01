@@ -17,6 +17,7 @@ export enum CompanySize {
 }
 
 export interface AlsoListed {
+  id: string;
   name: string;
   logoLink: string;
   type: string;

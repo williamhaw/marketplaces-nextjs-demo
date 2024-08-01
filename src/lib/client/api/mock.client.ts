@@ -4,7 +4,9 @@ import {
   alsoListed,
   apolloAssociatedCompanyExample,
   apolloDetail,
+  brazeAssociatedCompanyExample,
   brazeDetail,
+  zendeskAssociatedCompanyExample,
   zendeskDetail,
 } from "../mock/examples";
 import {
@@ -15,15 +17,19 @@ import {
 import { Client } from "./client";
 
 const allMarketplaceDetails = [zendeskDetail, apolloDetail, brazeDetail];
-const allAssociatedCompanies = [apolloAssociatedCompanyExample];
+const allAssociatedCompanies = [
+  apolloAssociatedCompanyExample,
+  zendeskAssociatedCompanyExample,
+  brazeAssociatedCompanyExample,
+];
 
 class MockClient implements Client {
   getMarketplaceDetails(): Promise<MarketplaceDetail[]> {
     const ret = async () => allMarketplaceDetails;
     return ret();
   }
-  getAlsoListed(): Promise<AlsoListed[]> {
-    const ret = async () => alsoListed;
+  getAlsoListed(id: string): Promise<AlsoListed[]> {
+    const ret = async () => alsoListed.filter((l) => l.id !== id);
     return ret();
   }
   getAssociatedCompany(id: string): Promise<AssociatedCompany | undefined> {
