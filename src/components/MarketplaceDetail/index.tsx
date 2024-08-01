@@ -11,7 +11,7 @@ import Image from "next/image";
 export interface MarketplaceDetailProps {
   detail: MarketplaceDetail | undefined;
   alsoListed: AlsoListed[];
-  company: AssociatedCompany;
+  company: AssociatedCompany | undefined;
 }
 
 export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
