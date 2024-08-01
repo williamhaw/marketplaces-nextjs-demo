@@ -1,7 +1,7 @@
 "use server";
 
 import {
-  alsoListedForApollo,
+  alsoListed,
   apolloAssociatedCompanyExample,
   apolloDetail,
   brazeDetail,
@@ -23,7 +23,7 @@ class MockClient implements Client {
     return ret();
   }
   getAlsoListed(): Promise<AlsoListed[]> {
-    const ret = async () => alsoListedForApollo;
+    const ret = async () => alsoListed;
     return ret();
   }
   getAssociatedCompany(id: string): Promise<AssociatedCompany | undefined> {
@@ -33,6 +33,6 @@ class MockClient implements Client {
   }
 }
 
-const client = new MockClient();
+const createClient = async () => new MockClient();
 
-export default client;
+export default createClient;

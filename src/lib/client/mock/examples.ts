@@ -17,7 +17,7 @@ export const apolloAssociatedCompanyExample: AssociatedCompany = {
     "Apollo is a market sales platform that helps accelerate the growth of an organization.",
 };
 
-export const alsoListedForApollo: AlsoListed[] = [
+export const alsoListed: AlsoListed[] = [
   {
     name: "Braze Integration Marketplace",
     logoLink: "/image/braze-logo.jpeg",
@@ -31,6 +31,11 @@ export const alsoListedForApollo: AlsoListed[] = [
   {
     name: "Zendesk Marketplace",
     logoLink: "/image/zendesk-logo.jpeg",
+    type: "App & integration",
+  },
+  {
+    name: "Apollo Integrations",
+    logoLink: "/image/apollo-logo.jpeg",
     type: "App & integration",
   },
 ];
