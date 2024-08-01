@@ -43,7 +43,7 @@ export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
             <div className="flex flex-col">
               <div>{company.name}</div>
               <div>{company.type}</div>
-              <div>{company.activeBuyersCount} active buyers</div>
+              <div>{company.activeBuyersCount.toLocaleString()} active buyers</div>
             </div>
           </div>
         ))}

@@ -24,8 +24,11 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
         <div>...</div>
       </div>
       {props.detail && (
-        <>
-          <div className="text-purple-600">Rank: {props.detail.rank}</div>
+        <div className="flex flex-col gap-3">
+          <div className="text-purple-600">
+            <span className="text-xs">Rank: </span>
+            <span className="text-base">{props.detail.rank}</span>
+          </div>
           <div className="flex items-center gap-3">
             <Image
               src={props.detail.logoLink}
@@ -33,11 +36,20 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
               width={60}
               height={60}
             />
-            <div>{props.detail.name}</div>
+            <div className="text-3xl">{props.detail.name}</div>
           </div>
-          <div className="flex gap-2">
-            <span>{props.detail.activeBuyersCount} active buyers</span>
-            <span>Prev {props.detail.previousBuyersCount}</span>
+          <div className="flex gap-2 text-xs">
+            <span>
+              {props.detail.activeBuyersCount.toLocaleString()} active buyers
+            </span>
+            <span>
+              Prev{" "}
+              {props.detail.previousBuyersCount.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+                notation: "compact",
+                compactDisplay: "short",
+              })}
+            </span>
             <span
               className={
                 props.detail.buyerCountChange > 0
@@ -49,19 +61,25 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
               {props.detail.buyerCountChange}%
             </span>
           </div>
-          <div>
+          <div className="text-sm">
             <span>{props.detail.type}</span>
           </div>
-          <div>
-            <span>{props.detail.listingCount} listings</span>
+          <div className="text-sm">
+            <span>{props.detail.listingCount} listings </span>
             <span>{props.detail.newListingCount} new</span>
           </div>
-          <div>{props.detail.features.join(",")}</div>
-          <div className="flex gap-3">
-            <button>Track</button>
-            <button>List Now</button>
+          <div className="text-sm">
+            Features: {props.detail.features.join(",")}
           </div>
-        </>
+          <div className="flex gap-3">
+            <button className="bg-lime-300 p-2 rounded-3xl w-1/4 text-sm">
+              Track
+            </button>
+            <button className="p-2 rounded-3xl border border-purple-600 w-1/4 text-sm">
+              List Now
+            </button>
+          </div>
+        </div>
       )}
       <AlsoListedComponent alsoListed={props.alsoListed} />
       <AssociatedCompanyComponent company={props.company} />
