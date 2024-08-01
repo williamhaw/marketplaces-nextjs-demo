@@ -1,6 +1,13 @@
 import { AlsoListed } from "@/lib/client/models/models";
 import React, { useState } from "react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faChevronLeft,
+  faChevronRight,
+  faShop,
+} from "@fortawesome/free-solid-svg-icons";
 
 export interface AlsoListedProps {
   alsoListed: AlsoListed[];
@@ -29,7 +36,9 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
             <div className="font-semibold">
               Where companies on this marketplace also list
             </div>
-            <div className="text-sm font-light">Based on the most popular companies</div>
+            <div className="text-sm font-light">
+              Based on the most popular companies
+            </div>
           </div>
           <div className="p-3"></div>
           <div className="">
@@ -41,7 +50,7 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
                   "text-sm " + (windowIndex === 0 ? "text-gray-400" : "")
                 }
               >
-                &lt; Previous
+                <FontAwesomeIcon icon={faChevronLeft} /> Previous
               </button>
               <button
                 onClick={showNext}
@@ -52,7 +61,7 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
                     : "")
                 }
               >
-                Next &gt;
+                Next <FontAwesomeIcon icon={faChevronRight} />
               </button>
             </div>
           </div>
@@ -71,8 +80,11 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
                   width={40}
                   height={40}
                 />
+                <div className="py-2"></div>
                 <div className="font-semibold text-sm">{marketplace.name}</div>
-                <div className="text-xs">{marketplace.type}</div>
+                <div className="text-xs">
+                  <FontAwesomeIcon icon={faShop} /> {marketplace.type}
+                </div>
                 <div className="py-5"></div>
                 <hr className="solid w-1/2" />
                 <div className="py-5"></div>
