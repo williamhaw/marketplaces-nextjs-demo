@@ -1,5 +1,8 @@
 import { AssociatedCompany } from "@/lib/client/models/models";
 import { companySizeToText } from "@/lib/utils";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,7 +31,7 @@ export const AssociatedCompanyComponent: React.FC<AssociatedCompanyProps> = (
                 <span className="text-sm">
                   {props.company.distributionCount} marketplaces{" "}
                   <abbr title="Number of marketplaces where this company is listed.">
-                    ⓘ
+                    <FontAwesomeIcon icon={faCircleQuestion} />
                   </abbr>
                 </span>
               </div>
@@ -63,7 +66,7 @@ export const AssociatedCompanyComponent: React.FC<AssociatedCompanyProps> = (
             <div className="flex pt-3">
               <div className="grow"></div>
               <button className="text-purple-700 text-sm">
-                Show all details
+                Show all details <FontAwesomeIcon icon={faArrowRight} />
               </button>
               <div className="grow"></div>
             </div>
