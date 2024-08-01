@@ -35,7 +35,11 @@ export const AssociatedCompanyComponent: React.FC<AssociatedCompanyProps> = (
             </div>
             <div>
               <div className="font-semibold text-sm">Website</div>
-              <Link href={props.company.website}>
+              <Link
+                href={props.company.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="text-xs">{props.company.website}</span>
               </Link>
             </div>
@@ -58,7 +62,9 @@ export const AssociatedCompanyComponent: React.FC<AssociatedCompanyProps> = (
           <div>
             <div className="flex pt-3">
               <div className="grow"></div>
-              <button className="text-purple-700">Show all details</button>
+              <button className="text-purple-700 text-sm">
+                Show all details
+              </button>
               <div className="grow"></div>
             </div>
           </div>
