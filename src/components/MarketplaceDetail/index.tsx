@@ -18,7 +18,7 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
   props: MarketplaceDetailProps
 ) => {
   return (
-    <div className="flex flex-col gap-8 px-8">
+    <div className="flex flex-col gap-8 px-8 bg-white">
       <div className="flex">
         <div className="grow"></div>
         <div>...</div>

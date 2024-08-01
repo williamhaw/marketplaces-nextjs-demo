@@ -16,7 +16,7 @@ export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
   };
 
   return (
-    <div>
+    <div className="bg-white">
       <div className="sidebar-highlight p-4">
         <div className="font-semibold text-lg">Top Ranked</div>
         <div className="text-sm">The Hot100</div>
