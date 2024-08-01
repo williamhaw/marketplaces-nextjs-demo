@@ -18,14 +18,18 @@ export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
   return (
     <div>
       <div className="sidebar-highlight p-4">
-        <div>Top Ranked</div>
-        <div>The Hot100</div>
-        <div>{props.companies.length} results</div>
+        <div className="font-semibold text-lg">Top Ranked</div>
+        <div className="text-sm">The Hot100</div>
+        <div className="text-xs">{props.companies.length} results</div>
       </div>
       <div className="p-3">
         <div>{/* image  */}</div>
-        <div>Show the marketplace where you&apos;d be a top seller</div>
-        <button>Sign in to show top picks for you</button>
+        <div className="text-purple-600 text-base font-semibold">
+          Show the marketplace where you&apos;d be a top seller
+        </div>
+        <button className="rounded-2xl border border-purple-600 px-4 py-1 text-sm text-purple-600">
+          Sign in to show top picks for you
+        </button>
       </div>
       <div className="flex flex-col">
         {props.companies.map((company) => (
@@ -41,9 +45,13 @@ export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
           >
             <Image src={company.logoLink} alt={""} width={70} height={70} />
             <div className="flex flex-col">
-              <div>{company.name}</div>
-              <div>{company.type}</div>
-              <div>{company.activeBuyersCount.toLocaleString()} active buyers</div>
+              <div className="text-purple-600 text-base font-semibold">
+                {company.name}
+              </div>
+              <div className="text-sm">{company.type}</div>
+              <div className="text-xs">
+                {company.activeBuyersCount.toLocaleString()} active buyers
+              </div>
             </div>
           </div>
         ))}
