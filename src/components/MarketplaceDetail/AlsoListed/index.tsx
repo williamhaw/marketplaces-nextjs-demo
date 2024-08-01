@@ -60,7 +60,7 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
         <div className="py-5"></div>
         <hr className="solid" />
         <div className="py-5"></div>
-        <div className="flex py-3">
+        <div className="flex py-3 gap-8">
           {props.alsoListed
             .filter((v, i) => i >= windowIndex && i < windowIndex + windowSize)
             .map((marketplace) => (
@@ -71,7 +71,7 @@ export const AlsoListedComponent: React.FC<AlsoListedProps> = (
                   width={40}
                   height={40}
                 />
-                <div className="font-semibold">{marketplace.name}</div>
+                <div className="font-semibold text-sm">{marketplace.name}</div>
                 <div className="text-xs">{marketplace.type}</div>
                 <div className="py-5"></div>
                 <hr className="solid w-1/2" />
