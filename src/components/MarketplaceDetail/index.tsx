@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowUpRightFromSquare,
+  faEllipsis,
   faPlus,
   faShare,
   faShield,
@@ -32,13 +33,13 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
 ) => {
   return (
     <div className="flex flex-col gap-8 px-8 bg-white">
-      <div className="flex items-center gap-3">
-        <div className="grow"></div>
-        <FontAwesomeIcon icon={faShare}/>
-        <div>...</div>
-      </div>
       {props.detail && (
         <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-3 pt-2">
+            <div className="grow"></div>
+            <FontAwesomeIcon icon={faShare} />
+            <FontAwesomeIcon icon={faEllipsis} />
+          </div>
           <div className="text-purple-600">
             <span className="text-xs">Rank: </span>
             <span className="text-base">{props.detail.rank}</span>
