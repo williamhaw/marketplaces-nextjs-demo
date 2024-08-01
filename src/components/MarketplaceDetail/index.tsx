@@ -7,6 +7,19 @@ import React from "react";
 import { AlsoListedComponent } from "./AlsoListed";
 import { AssociatedCompanyComponent } from "./AssociatedCompany";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleQuestion,
+  faRectangleList,
+  faStar,
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faPlus,
+  faShare,
+  faShield,
+  faShop,
+} from "@fortawesome/free-solid-svg-icons";
 
 export interface MarketplaceDetailProps {
   detail: MarketplaceDetail | undefined;
@@ -19,8 +32,9 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
 ) => {
   return (
     <div className="flex flex-col gap-8 px-8 bg-white">
-      <div className="flex">
+      <div className="flex items-center gap-3">
         <div className="grow"></div>
+        <FontAwesomeIcon icon={faShare}/>
         <div>...</div>
       </div>
       {props.detail && (
@@ -37,6 +51,7 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
               height={60}
             />
             <div className="text-3xl">{props.detail.name}</div>
+            <FontAwesomeIcon icon={faShield} />
           </div>
           <div className="flex gap-2 text-xs">
             <span>
@@ -60,23 +75,35 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
               {props.detail.buyerCountChange > 0 ? "+" : "-"}
               {props.detail.buyerCountChange}%
             </span>
+            <abbr title="Change in buyers by percentage">
+              <FontAwesomeIcon icon={faCircleQuestion} />
+            </abbr>
           </div>
           <div className="text-sm">
-            <span>{props.detail.type}</span>
+            <FontAwesomeIcon icon={faShop} />
+            <span> {props.detail.type}</span>
           </div>
           <div className="text-sm">
-            <span>{props.detail.listingCount} listings </span>
+            <FontAwesomeIcon icon={faStar} />
+            <span> {props.detail.listingCount} listings </span>
             <span>{props.detail.newListingCount} new</span>
           </div>
           <div className="text-sm">
-            Features: {props.detail.features.join(",")}
+            <FontAwesomeIcon icon={faRectangleList} />
+            <span>
+              {" "}
+              Features: {props.detail.features.slice(0, 2).join(",")}, +
+              {props.detail.features.length - 2} more
+            </span>
           </div>
           <div className="flex gap-3">
             <button className="bg-lime-300 p-2 rounded-3xl w-1/4 text-sm">
-              Track
+              <FontAwesomeIcon icon={faPlus} />
+              <span> Track</span>
             </button>
             <button className="p-2 rounded-3xl border border-purple-600 w-1/4 text-sm">
-              List Now
+              <span>List Now </span>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </button>
           </div>
         </div>
