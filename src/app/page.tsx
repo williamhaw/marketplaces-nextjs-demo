@@ -15,6 +15,7 @@ export default function Home() {
     undefined as AssociatedCompany | undefined
   );
   const [alsoListed, setAlsoListed] = useState([] as AlsoListed[]);
+  const [isDetailOpen, setDetailOpen] = useState(false);
 
   useEffect(() => {
     const get = async () => {
@@ -59,11 +60,15 @@ export default function Home() {
           selectedCompanyId={selectedCompanyId}
           setSelectedCompanyId={setSelectedCompanyId}
           companies={marketplaces}
+          isDetailOpen={isDetailOpen}
+          setDetailOpen={setDetailOpen}
         />
         <MarketplaceDetailComponent
           detail={marketplaces.find((c) => c.id === selectedCompanyId)}
           alsoListed={alsoListed}
           company={associatedCompany}
+          isOpen={isDetailOpen}
+          setDetailOpen={setDetailOpen}
         />
       </div>
     </main>

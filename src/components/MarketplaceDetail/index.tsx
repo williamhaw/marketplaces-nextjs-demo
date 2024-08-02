@@ -3,7 +3,7 @@ import {
   AssociatedCompany,
   MarketplaceDetail,
 } from "@/lib/client/models/models";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { AlsoListedComponent } from "./AlsoListed";
 import { AssociatedCompanyComponent } from "./AssociatedCompany";
 import Image from "next/image";
@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowUpRightFromSquare,
+  faChevronLeft,
   faEllipsis,
   faPlus,
   faShare,
@@ -26,16 +27,30 @@ export interface MarketplaceDetailProps {
   detail: MarketplaceDetail | undefined;
   alsoListed: AlsoListed[];
   company: AssociatedCompany | undefined;
+  isOpen: boolean;
+  setDetailOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
   props: MarketplaceDetailProps
 ) => {
+  const handleBack = () => {
+    props.setDetailOpen(false);
+  };
+
   return (
-    <div className="flex flex-col gap-8 px-8 bg-white overflow-y-scroll h-screen">
+    <div
+      className={
+        "flex flex-col gap-8 px-8 bg-white overflow-y-scroll h-screen " +
+        (props.isOpen ? "" : "max-lg:hidden")
+      }
+    >
       {props.detail && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3 pt-2">
+            <button className="lg:hidden" onClick={handleBack}>
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
             <div className="grow"></div>
             <FontAwesomeIcon icon={faShare} />
             <FontAwesomeIcon icon={faEllipsis} />

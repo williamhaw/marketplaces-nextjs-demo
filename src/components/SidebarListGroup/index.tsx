@@ -8,6 +8,8 @@ export interface SidebarListGroupProps {
   selectedCompanyId: string;
   setSelectedCompanyId: Dispatch<SetStateAction<string>>;
   companies: MarketplaceDetail[];
+  isDetailOpen: boolean;
+  setDetailOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
@@ -15,10 +17,11 @@ export const SidebarListGroup: React.FC<SidebarListGroupProps> = (
 ) => {
   const selectCompany = (companyId: string) => () => {
     props.setSelectedCompanyId(companyId);
+    props.setDetailOpen(true);
   };
 
   return (
-    <div className="">
+    <div className={props.isDetailOpen ? "max-lg:hidden" : ""}>
       <div className="bg-white">
         <div className="sidebar-highlight p-4">
           <div className="font-semibold text-lg">Top Ranked</div>
