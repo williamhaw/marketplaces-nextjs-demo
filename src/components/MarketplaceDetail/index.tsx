@@ -32,7 +32,7 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
   props: MarketplaceDetailProps
 ) => {
   return (
-    <div className="flex flex-col gap-8 px-8 bg-white">
+    <div className="flex flex-col gap-8 px-8 bg-white overflow-y-scroll h-screen">
       {props.detail && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3 pt-2">
@@ -111,6 +111,7 @@ export const MarketplaceDetailComponent: React.FC<MarketplaceDetailProps> = (
       )}
       <AlsoListedComponent alsoListed={props.alsoListed} />
       <AssociatedCompanyComponent company={props.company} />
+      <div className="py-3"></div>
     </div>
   );
 };

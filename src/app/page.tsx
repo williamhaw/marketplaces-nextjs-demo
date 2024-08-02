@@ -55,20 +55,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex">
-        <div>
-          <SidebarListGroup
-            selectedCompanyId={selectedCompanyId}
-            setSelectedCompanyId={setSelectedCompanyId}
-            companies={marketplaces}
-          />
-        </div>
-        <div>
-          <MarketplaceDetailComponent
-            detail={marketplaces.find((c) => c.id === selectedCompanyId)}
-            alsoListed={alsoListed}
-            company={associatedCompany}
-          />
-        </div>
+        <SidebarListGroup
+          selectedCompanyId={selectedCompanyId}
+          setSelectedCompanyId={setSelectedCompanyId}
+          companies={marketplaces}
+        />
+        <MarketplaceDetailComponent
+          detail={marketplaces.find((c) => c.id === selectedCompanyId)}
+          alsoListed={alsoListed}
+          company={associatedCompany}
+        />
       </div>
     </main>
   );
